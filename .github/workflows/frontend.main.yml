@@ -1,4 +1,4 @@
-name: Blob storage website CI
+name: Update HTML
 
 on:
     push:
@@ -17,8 +17,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name azureresumehosting --auth-mode key -d '$web' -s .
-            --overwrite true 
+            az storage blob upload-batch --account-name azureresumehosting --auth-mode key -d '$web' -s frontend/
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
