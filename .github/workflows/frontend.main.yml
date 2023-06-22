@@ -3,8 +3,6 @@ name: Blob storage website CI
 on:
     push:
         branches: [ main ]
-        paths: 
-          - 'frontend/**'
 
 jobs:
   build:
@@ -24,9 +22,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name "azureresumecdn1001"
-            --name "azureresumecdn1001"
-            --resource-group "azureresume-rg"
+           az cdn endpoint purge --content-paths  "/*" --profile-name "azureresumecdn1001" --name "azureresumecdn1001" --resource-group "azureresume-rg"
 
   # Azure logout
     - name: logout
